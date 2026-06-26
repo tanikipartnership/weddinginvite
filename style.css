@@ -23,7 +23,7 @@ body {
 .section {
   width: min(92%, 920px);
   margin: 0 auto;
-  padding: 72px 0;
+  padding: 24px 0;
   text-align: center;
   position: relative;
 }
@@ -106,17 +106,19 @@ p { line-height: 1.8; color: var(--muted); }
 .envelope.opening .envelope-img { transition: opacity 500ms ease 200ms; opacity: 0; }
 .invite-cursive {
   font-family: 'Great Vibes', cursive;
-  font-size: clamp(2.4rem, 6vw, 3.2rem);
+  font-size: clamp(2.7rem, 7vw, 3.6rem);
   color: var(--brown);
   margin: 18px 0 0;
   line-height: 1;
 }
 .envelope-hint {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
   letter-spacing: 3px;
   text-transform: uppercase;
   font-size: .7rem;
   color: var(--gold);
+  text-align: center;
   margin: 0;
 }
 button, .primary-btn, .secondary-btn {
@@ -155,10 +157,10 @@ button:hover:not(.envelope), .primary-btn:hover, .secondary-btn:hover { transfor
 .music-btn.playing { animation: pulse 1.6s infinite; }
 
 .hero {
-  min-height: 100vh;
+  min-height: 80vh;
   display: grid;
   place-content: center;
-  padding-bottom: 24px;
+  padding-bottom: 15px;
 }
 .ornament { font-size: 4rem; color: var(--champagne); }
 .ornament-ganesh {
@@ -186,20 +188,12 @@ button:hover:not(.envelope), .primary-btn:hover, .secondary-btn:hover { transfor
 }
 .couple-name span { color: var(--gold); }
 .hero-text { max-width: 520px; margin: 24px auto; }
-.wedding-date {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.8rem;
-  color: var(--brown);
-  margin-bottom: 32px;
-  font-variant-numeric: lining-nums;
-  letter-spacing: 1px;
-}
 
 .countdown {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 12px;
-  margin-top: 32px;
+  margin-top: 20px;
 }
 .countdown div, .event-card, .family-grid div, .venue-section, .rsvp-section form {
   background: rgba(255, 253, 248, .74);
@@ -212,23 +206,61 @@ button:hover:not(.envelope), .primary-btn:hover, .secondary-btn:hover { transfor
 .countdown small { color: var(--muted); }
 
 .scratch-wrap {
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
   margin-top: 32px;
-  border-radius: 24px;
+  max-width: 380px;
+  margin-left: auto;
+  margin-right: auto;
 }
-.scratch-wrap .countdown { margin-top: 0; }
+.scratch-canvas-container {
+  position: relative;
+  width: 100%;
+}
+.scratch-date {
+  padding: 32px 24px;
+  background: rgba(255, 253, 248, 0.74);
+  border: 1px solid rgba(184, 137, 69, 0.2);
+  border-radius: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--brown);
+  text-align: center;
+  overflow: hidden;
+  min-height: 100px;
+  display: grid;
+  place-items: center;
+  position: relative;
+  z-index: 1;;
+  font-variant-numeric: lining-nums;
+  letter-spacing: 1px;
+}
 .scratch-canvas {
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   border-radius: 24px;
   cursor: grab;
   touch-action: none;
-  transition: opacity .6s ease;
+  transition: opacity 0.6s ease;
+  z-index: 3;
 }
 .scratch-canvas:active { cursor: grabbing; }
 .scratch-canvas.revealed { opacity: 0; pointer-events: none; }
+.scratch-wrap .countdown {
+  opacity: 0;
+  transition: opacity 0.7s ease 0.3s;
+  pointer-events: none;
+}
+.scratch-wrap .countdown.flash {
+  opacity: 1;
+  pointer-events: auto;
+}
 .scratch-hint {
   position: absolute;
   inset: 0;
@@ -256,7 +288,17 @@ button:hover:not(.envelope), .primary-btn:hover, .secondary-btn:hover { transfor
 }
 
 .story-section p { max-width: 650px; margin: 24px auto 0; }
-.timeline { display: grid; gap: 18px; margin-top: 34px; }
+.timeline { 
+  display: grid; 
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px; 
+  margin-top: 34px; 
+}
+.event-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
 .event-card { padding: 28px 22px; position: relative; overflow: hidden; }
 .event-card::before {
   content: '';
@@ -357,9 +399,79 @@ button:hover:not(.envelope), .primary-btn:hover, .secondary-btn:hover { transfor
   color: var(--muted);
 }
 
+.family-section {
+  padding: 72px 0;
+}
+.blessings-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.85rem;
+  color: var(--gold);
+  margin: 16px 0 20px 0;
+  line-height: 1.8;
+  letter-spacing: 0.4px;
+}
 .family-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-top: 32px; }
 .family-grid div { padding: 30px 18px; }
-.family-grid h3 { font-size: 1.8rem; color: var(--gold); }
+.family-grid h3 { font-family: 'Great Vibes', cursive; font-size: 2.4rem; color: var(--gold); }
+.family-card {
+  background: rgba(255, 253, 248, .74);
+  border: 1px solid rgba(184, 137, 69, .2);
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+  padding: 30px 18px;
+}
+.family-card h3 {
+  margin-top: 0;
+}
+.family-note {
+  margin-top: 10px;
+}
+.family-note p {
+  margin: 0;
+}
+.family-card .blessings-text {
+  font-size: 1.32rem;
+  margin: 0;
+}
+.family-card .blessing-names,
+.family-card .blessing-group {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.14rem;
+  color: var(--brown);
+  line-height: 1.75;
+}
+.family-card .blessing-names {
+  margin-top: 2px;
+  margin-bottom: 14px;
+}
+.family-card .blessing-group {
+  margin-bottom: 2px;
+}
+.family-card .together-with {
+  margin-top: 14px;
+  margin-bottom: 2px;
+}
+.family-card .closing-note {
+  margin-top: 14px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(184, 137, 69, .24);
+  line-height: 1.6;
+}
+
+.map-container {
+  padding: 20px;
+  margin: 24px 0;
+  border-radius: 24px;
+  overflow: hidden;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.venue-map {
+  width: 100%;
+  height: 350px;
+  border: none;
+}
 
 .gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 32px; }
 .photo {
@@ -458,5 +570,11 @@ footer h2 { font-family: 'Great Vibes', cursive; color: var(--brown); }
   .countdown { grid-template-columns: repeat(2, 1fr); }
   .wardrobe-grid { grid-template-columns: 1fr; }
   .family-grid, .gallery { grid-template-columns: 1fr; }
+  .timeline { grid-template-columns: 1fr; }
   .photo { min-height: 240px; }
+  .venue-map { height: 280px; }
+  .blessings-text {
+    font-size: 1.18rem;
+    margin: 12px 0 16px;
+  }
 }

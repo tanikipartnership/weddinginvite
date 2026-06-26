@@ -34,12 +34,11 @@
   <section class="intro-screen" id="introScreen">
     <div class="envelope-wrap">
       <img class="intro-ganesha" src="assets/ganeshaynamah.png" alt="Shree Ganesh" />
-      <p class="envelope-hint">Tap the envelope to open invitation</p>
+      <p class="invite-cursive">You are invited</p>
       <button class="envelope" id="openInvite" aria-label="Open invitation">
         <img class="envelope-img" src="assets/envelope.png" alt="" />
       </button>
-      <p class="invite-cursive">You are invited</p>
-      
+      <p class="envelope-hint">Tap the envelope to open invitation</p>
     </div>
   </section>
 
@@ -51,7 +50,6 @@
       <p class="eyebrow">Together with their families</p>
       <h1 class="couple-name">Niharika <span>&</span> Tanishk</h1>
       <p class="hero-text">request the pleasure of your presence as they begin their forever.</p>
-      <p class="wedding-date">11th December 2026</p>
     </section>
 
     <section class="section countdown-section">
@@ -59,13 +57,46 @@
       <h2>Countdown Begins</h2>
       <h3>Scratch to reveal✨</h3>
       <div class="scratch-wrap" id="scratchWrap">
+        <div class="scratch-canvas-container">
+          <div class="scratch-date" id="scratchDate">11th December 2026</div>
+          <canvas class="scratch-canvas" id="scratchCanvas"></canvas>
+        </div>
         <div class="countdown" id="countdown">
           <div><span id="days">00</span><small>Days</small></div>
           <div><span id="hours">00</span><small>Hours</small></div>
           <div><span id="minutes">00</span><small>Minutes</small></div>
           <div><span id="seconds">00</span><small>Seconds</small></div>
         </div>
-        <canvas class="scratch-canvas" id="scratchCanvas"></canvas>
+      </div>
+    </section>
+
+    <section class="section family-section">
+      <p class="eyebrow">Blessed by</p>
+      <h2>Our Families</h2>
+      <div class="family-grid">
+        <div class="family-card mimani-card">
+          <h3>Mimani Parivar</h3>
+          <div class="family-note">
+            <p class="blessings-text">With the cherished blessings of</p>
+            <p class="blessing-names">Smt. Sudha Mimani &amp; Lt. Shri Laxmi Narayan Mimani</p>
+            <p class="blessing-group">Mrs. Seema Mimani &amp; Mr. Chandan Mimani</p>
+            <p class="blessing-group">Mr. Nandan Mimani</p>
+            <p class="blessings-text together-with">Together with</p>
+            <p class="blessing-group">Suhanee Mimani &amp; Nishita Mimani</p>
+          </div>
+        </div>
+        <div class="family-card">
+          <h3>Gupta Parivar</h3>
+          <div class="family-note">
+            <p class="blessings-text">With the cherished blessings of</p>
+            <p class="blessing-names">Smt. Gupta &amp; Late Shri Gupta</p>
+            <p class="blessing-group">Mrs. Kavita Gupta &amp; Mr. Arpan Gupta</p>
+            <p class="blessing-group">Mrs. Kavita Gupta &amp; Mr. Arpan Gupta</p>
+            <p class="blessing-group">Mrs. Kavita Gupta &amp; Mr. Arpan Gupta</p>
+            <p class="blessings-text together-with">Together with</p>
+            <p class="blessing-group">xyz</p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -82,47 +113,28 @@
       <p class="eyebrow">Wedding festivities</p>
       <h2>Event Schedule</h2>
       <div class="timeline">
-        <img class="event-full-img" src="assets/haldi.png" alt="Haldi ke rang, Carnival ke sang" />
-        <article class="event-card">
-          <span class="event-date">10 Dec</span>
-          <h3>Mayra</h3>
-          <p>04:00 PM onwards</p>
-          <p>Poolside, Novotel-Kolkata</p>
-        </article>
-        <img class="event-full-img" src="assets/sangeet.png" alt="Sang hai toh Geet hai" />
-        <img class="event-full-img" src="assets/wedding.png" alt="Phoolon se Pheron tak" />
-        <article class="event-card">
-          <span class="event-date">11 Dec</span>
-          <h3>Wedding</h3>
-          <p>12:00 PM onwards</p>
-          <p>Terrace, Novotel-Kolkata</p>
-        </article>
-        <article class="event-card">
-          <span class="event-date">11 Dec</span>
-          <h3>Jamming & Reception</h3>
-          <p>6:00 PM onwards</p>
-          <p>Terrace, Novotel-Kolkata</p>
-        </article>
-      </div>
-    </section>
-
-
-    <section class="section family-section">
-      <p class="eyebrow">Blessed by</p>
-      <h2>Our Families</h2>
-      <div class="family-grid">
-        <div>
-          <h3>Bride's Family</h3>
-          <p>Mr. & Mrs. Mimani</p>
+        <div class="event-item">
+          <img class="event-full-img" src="assets/haldi.png" alt="Haldi ke rang, Carnival ke sang" />
         </div>
-        <div>
-          <h3>Groom's Family</h3>
-          <p>Mr. & Mrs. Family Name</p>
+        <div class="event-item">
+          <img class="event-full-img" src="assets/maayra.png" alt="Maayra ki mehek" />
+        </div>
+        <div class="event-item">
+          <img class="event-full-img" src="assets/sangeet.png" alt="Sang hai toh Geet hai" />
+        </div>
+        <div class="event-item">
+          <img class="event-full-img" src="assets/baarat.png" alt="Band Baaja Baarat" />
+        </div>
+        <div class="event-item">
+          <img class="event-full-img" src="assets/wedding.png" alt="Phoolon se Pheron tak" />
+        </div>
+        <div class="event-item">
+          <img class="event-full-img" src="assets/reception.png" alt="An afterglow jam" />
         </div>
       </div>
     </section>
 
-    <section class="section gallery-section">
+    <!-- <section class="section gallery-section">
       <p class="eyebrow">Memories</p>
       <h2>Photo Gallery</h2>
       <div class="gallery">
@@ -131,13 +143,16 @@
         <div class="photo placeholder">Add Photo</div>
         <div class="photo placeholder">Add Photo</div>
       </div>
-    </section>
+    </section> -->
 
     <section class="section venue-section">
       <p class="eyebrow">Venue</p>
       <h2>Join Us Here</h2>
       <p>Novotel, Kolkata, West Bengal</p>
-      <a class="secondary-btn" href="https://maps.app.goo.gl/XMXKMyu5jb9FwMGeA" target="_blank" rel="noopener">Open Google Maps</a>
+      <div class="map-container">
+        <iframe class="venue-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5012.699819730546!2d88.4589345118863!3d22.580053132609592!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a02753d09d3d733%3A0xb81242f6fef0e357!2sNovotel%20Kolkata%20-%20Hotel%20%26%20Residences!5e1!3m2!1sen!2sin!4v1782379390511!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      </div>
+      <a class="secondary-btn" href="https://maps.app.goo.gl/XMXKMyu5jb9FwMGeA" target="_blank" rel="noopener">Get Directions</a>
     </section>
 
     <section class="section rsvp-section" id="rsvp">

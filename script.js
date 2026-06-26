@@ -70,8 +70,9 @@ updateCountdown();
 (function initScratch() {
   const canvas = document.getElementById('scratchCanvas');
   const wrap = document.getElementById('scratchWrap');
+  const container = document.querySelector('.scratch-canvas-container');
   const hint = document.getElementById('scratchHint');
-  if (!canvas || !wrap) return;
+  if (!canvas || !wrap || !container) return;
 
   const ctx = canvas.getContext('2d');
   const countdownEl = document.getElementById('countdown');
