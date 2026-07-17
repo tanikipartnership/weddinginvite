@@ -430,7 +430,7 @@ button:hover:not(.envelope), .primary-btn:hover, .secondary-btn:hover { transfor
   line-height: 1.8;
   letter-spacing: 0.4px;
 }
-.family-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-top: 32px; }
+.family-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; margin-top: 32px; }
 .family-grid div { padding: 30px 18px; }
 .family-grid h3 { font-family: 'Great Vibes', cursive; font-size: 2.4rem; color: var(--gold); }
 .family-card {
