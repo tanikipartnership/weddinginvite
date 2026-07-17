@@ -75,6 +75,34 @@
         position: fixed;
         right: calc(50% - 240px + 18px);
       }
+      
+    /* Wax-seal overlay button on top of the intro video */
+    #sealButton {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(1);
+      width: min(52vw, 240px);
+      height: auto;
+      cursor: pointer;
+      z-index: 60;
+      transition: opacity .5s ease, transform .5s ease;
+      filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.35));
+      user-select: none;
+      -webkit-user-drag: none;
+      pointer-events: auto;
+      animation: sealPulse 2.4s ease-in-out infinite;
+    }
+    #sealButton.playing {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.8);
+      pointer-events: none;
+      animation: none;
+    }
+    @keyframes sealPulse {
+      0%, 100% { transform: translate(-50%, -50%) scale(1); }
+      50%      { transform: translate(-50%, -50%) scale(1.05); }
+    }
       .desktop-notice {
         display: block;
         position: fixed;
