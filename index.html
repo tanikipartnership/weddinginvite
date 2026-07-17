@@ -42,9 +42,61 @@
       object-fit: cover;
       background: #000;
     }
+
+    /* Mobile-only notice — hidden by default, shown on wider screens */
+    .desktop-notice { display: none; }
+
+    /* On tablets / laptops: constrain the whole invitation to a mobile-sized
+       column so the layout doesn't stretch, and show a small notice. */
+    @media (min-width: 768px) {
+      html {
+        background: #ede0c9;
+        min-height: 100vh;
+      }
+      body {
+        max-width: 480px;
+        margin: 0 auto;
+        min-height: 100vh;
+        box-shadow: 0 0 60px rgba(74, 47, 34, 0.15);
+        position: relative;
+        overflow-x: hidden;
+      }
+      #introScreen {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 480px;
+        max-width: 100vw;
+        inset: auto;
+      }
+      .music-btn {
+        position: fixed;
+        right: calc(50% - 240px + 18px);
+      }
+      .desktop-notice {
+        display: block;
+        position: fixed;
+        top: 0; left: 0; right: 0;
+        padding: 10px 14px;
+        background: rgba(160, 74, 63, 0.94);
+        color: #fff8ef;
+        text-align: center;
+        font-size: 0.82rem;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 500;
+        z-index: 100;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+      }
+    }
   </style>
 </head>
 <body>
+  <div class="desktop-notice">For the best experience, please open on a mobile device</div>
+
   <audio id="bgMusic" preload="auto">
     <source src="assets/bgmusic.mp3" type="audio/mpeg" />
   </audio>
