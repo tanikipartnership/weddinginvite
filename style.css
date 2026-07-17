@@ -5,6 +5,7 @@
   --gold: #b88945;
   --brown: #4a2f22;
   --rose: #c7837d;
+  --accent-saffron-maroon: #a04a3f;
   --muted: #7d6657;
   --shadow: 0 24px 60px rgba(74, 47, 34, 0.16);
 }
@@ -157,10 +158,16 @@ button:hover:not(.envelope), .primary-btn:hover, .secondary-btn:hover { transfor
 .music-btn.playing { animation: pulse 1.6s infinite; }
 
 .hero {
-  min-height: 80vh;
-  display: grid;
-  place-content: center;
-  padding-bottom: 15px;
+  display: block;
+  width: min(96vw, 760px);
+  margin: 0 auto;
+  padding: 0;
+  isolation: isolate;
+}
+.hero-card-image {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 .ornament { font-size: 4rem; color: var(--champagne); }
 .ornament-ganesh {
@@ -186,8 +193,16 @@ button:hover:not(.envelope), .primary-btn:hover, .secondary-btn:hover { transfor
   font-size: clamp(4rem, 15vw, 8rem);
   line-height: .9;
 }
+.couple-separator {
+  font-size: clamp(2rem, 7vw, 3.4rem);
+  color: #a56b62;
+  text-shadow: 0 0 14px rgba(160, 74, 63, 0.12);
+}
 .couple-name span { color: var(--gold); }
 .hero-text { max-width: 520px; margin: 24px auto; }
+.hero .eyebrow {
+  color: var(--accent-saffron-maroon);
+}
 
 .countdown {
   display: grid;
@@ -567,6 +582,19 @@ footer h2 { font-family: 'Great Vibes', cursive; color: var(--brown); }
 
 @media (max-width: 680px) {
   .section { padding: 58px 0; }
+  .hero {
+    width: min(100%, 520px);
+    padding-top: 0;
+    margin-top: 0;
+  }
+  .couple-name { font-size: clamp(2.2rem, 13vw, 3.5rem); }
+  .hero .hero-text {
+    color: #5f4a3d;
+    font-weight: 500;
+    line-height: 1.5;
+    font-size: clamp(0.93rem, 3.35vw, 1.03rem);
+    margin: 8px auto;
+  }
   .countdown { grid-template-columns: repeat(2, 1fr); }
   .wardrobe-grid { grid-template-columns: 1fr; }
   .family-grid, .gallery { grid-template-columns: 1fr; }
