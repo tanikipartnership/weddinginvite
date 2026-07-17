@@ -116,7 +116,7 @@
   <main id="mainContent" class="hidden">
     <section class="hero section">
       <img class="hero-card-image" src="assets/Mainnew.png" alt="Wedding invitation card for Niharika and Tanishk" />
-    </section> 
+    </section>
 
     <section class="section countdown-section">
       <p class="eyebrow">Till forever</p>
@@ -277,11 +277,15 @@
         if (finished) return;
         finished = true;
         main.classList.remove('hidden');
+        // Hide the intro instantly so the hero is at the top of the viewport
+        intro.style.display = 'none';
         window.scrollTo(0, 0);
+        // Also scroll the hero into view to be certain
+        const hero = main.querySelector('.hero');
+        if (hero && hero.scrollIntoView) {
+          hero.scrollIntoView({ block: 'start', behavior: 'auto' });
+        }
         window.dispatchEvent(new Event('resize'));
-        intro.style.transition = 'opacity 500ms ease';
-        intro.style.opacity = '0';
-        setTimeout(() => { intro.style.display = 'none'; }, 550);
       }
 
       async function startVideo() {
