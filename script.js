@@ -18,24 +18,43 @@ music.addEventListener('ended', () => {
 });
 
 openInvite.addEventListener('click', async () => {
-  const envelope = openInvite.closest('.envelope');
-  if (envelope) envelope.classList.add('opening');
-  introScreen.style.transition = 'opacity 700ms ease 350ms';
-  introScreen.style.opacity = '0';
+  if (openInvite.dataset.opened === '1') return;
+  openInvite.dataset.opened = '1';
 
+  // 1. Open the flap AND start the zoom immediately on click
+  openInvite.classList.add('open');
+  openInvite.classList.add('zoom');
+
+  // 2. Reveal the main invitation immediately underneath the intro
+  //    so there's no blank flash when the intro fades out.
+  mainContent.classList.remove('hidden');
+  window.scrollTo(0, 0);
+  revealOnScroll();
+  window.dispatchEvent(new Event('resize'));
+
+  // 3. Fade the intro screen out as the zoom completes
+  setTimeout(() => {
+    introScreen.style.transition = 'opacity 500ms ease';
+    introScreen.style.opacity = '0';
+  }, 1900);
+
+  // 4. Remove the intro screen entirely once faded
   setTimeout(() => {
     introScreen.style.display = 'none';
-    mainContent.classList.remove('hidden');
-    window.scrollTo(0, 0);
-    revealOnScroll();
-    window.dispatchEvent(new Event('resize'));
-  }, 1100);
+  }, 2500);
 
   try {
     await music.play();
     musicBtn.classList.add('playing');
   } catch (err) {
     console.log('Autoplay blocked. User can play music manually.');
+  }
+});
+
+openInvite.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter' || e.key === ' ') {
+    e.preventDefault();
+    openInvite.click();
   }
 });
 
@@ -220,12 +239,12 @@ updateCountdown();
 function createPetal() {
   const petal = document.createElement('span');
   petal.className = 'petal';
-  const size = 18 + Math.random() * 18; // 18-36px carnations
+  const size = 16 + Math.random() * 15; // 16-31px petals for less text overlap
   petal.style.left = Math.random() * 100 + 'vw';
   petal.style.width = size + 'px';
   petal.style.height = size + 'px';
   petal.style.animationDuration = 8 + Math.random() * 7 + 's';
-  petal.style.opacity = 0.55 + Math.random() * 0.35;
+  petal.style.opacity = 0.42 + Math.random() * 0.30;
   // tint between soft pink, coral, and blush via hue-rotate + saturation
   const hue = -15 + Math.random() * 40;
   const sat = 0.85 + Math.random() * 0.5;
@@ -233,7 +252,7 @@ function createPetal() {
   document.getElementById('petals').appendChild(petal);
   setTimeout(() => petal.remove(), 16000);
 }
-setInterval(createPetal, 650);
+setInterval(createPetal, 780);
 
 function popConfettiFrom(element) {
   if (!element) return;
