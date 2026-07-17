@@ -161,18 +161,17 @@ button:hover:not(.envelope), .primary-btn:hover, .secondary-btn:hover { transfor
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  width: min(96vw, 760px);
+  width: 100%;
+  max-width: 760px;
   margin: 0 auto;
   padding: 0;
   isolation: isolate;
 }
 .hero-card-image {
   display: block;
-  max-width: 100%;
-  max-height: 100vh;
-  max-height: 100svh;
-  width: auto;
+  width: 100%;
   height: auto;
+  max-width: 100%;
   margin: 0 auto;
 }
 .ornament { font-size: 4rem; color: var(--champagne); }
