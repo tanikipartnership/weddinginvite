@@ -8,19 +8,41 @@
 
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Niharika & Tanishk | Wedding Invitation" />
-  <meta property="og:description" content="Join us for Carnival, Haldi, Sangeet, Wedding and Reception celebrations." />
+  <meta property="og:description" content="You are invited to celebrate the wedding festivities of Niharika & Tanishk on 10th and 11th December 2026." />
   <meta property="og:image" content="assets/download.jpg" />
   <meta property="og:image:alt" content="Niharika and Tanishk wedding invitation cover" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Niharika & Tanishk | Wedding Invitation" />
-  <meta name="twitter:description" content="Join us for Carnival, Haldi, Sangeet, Wedding and Reception celebrations." />
+  <meta name="twitter:description" content="You are invited to celebrate the wedding festivities of Niharika & Tanishk on 10th and 11th December 2026." />
   <meta name="twitter:image" content="assets/download.jpg" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* Full-screen intro video */
+    #introScreen {
+      position: fixed;
+      inset: 0;
+      z-index: 50;
+      margin: 0;
+      padding: 0;
+      background: #000;
+      display: block;
+      cursor: pointer;
+    }
+    #introVideo {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      background: #000;
+    }
+  </style>
 </head>
 <body>
   <audio id="bgMusic" preload="auto">
@@ -31,25 +53,17 @@
 
   <div class="floating-petals" id="petals"></div>
 
-  <section class="intro-screen" id="introScreen">
-    <div class="envelope-wrap">
-      <img class="intro-ganesha" src="assets/ganeshaynamah.png" alt="Shree Ganesh" />
-      <p class="invite-cursive">You are invited</p>
-      <button class="envelope" id="openInvite" aria-label="Open invitation">
-        <img class="envelope-img" src="assets/envelope.png" alt="" />
-      </button>
-      <p class="envelope-hint">Tap the envelope to open invitation</p>
-    </div>
+  <section id="introScreen">
+    <video id="introVideo" playsinline preload="auto" muted autoplay>
+      <source src="assets/envelope.mp4" type="video/mp4">
+    </video>
+    <!-- Kept for script.js compatibility; not visible -->
+    <div id="openInvite" style="display:none"></div>
   </section>
 
   <main id="mainContent" class="hidden">
     <section class="hero section">
-      <div class="ornament ornament-ganesh">
-        <img src="assets/ganeshaynamah.png" alt="Shree Ganesh" onerror="this.style.display='none'; this.parentElement.classList.add('ornament-fallback');" />
-      </div>
-      <p class="eyebrow">Together with their families</p>
-      <h1 class="couple-name">Niharika <span>&</span> Tanishk</h1>
-      <p class="hero-text">request the pleasure of your presence as they begin their forever.</p>
+      <img class="hero-card-image" src="assets/Main.png" alt="Wedding invitation card for Niharika and Tanishk" />
     </section>
 
     <section class="section countdown-section">
@@ -91,13 +105,11 @@
           <div class="family-note">
             <p class="blessings-text">With the cherished blessings of</p>
             <p class="blessing-names">Smt. Nirmal Kamal Kumar Gupta</p>
-            <p class="blessing-names">Smt. Rukmani Shri Dhar Garg</p>
             <p class="blessing-group">Kavita &amp; Arpan Gupta</p>
-            <p class="blessing-group">Kirtan Atul Gupta</p>
+            <p class="blessing-group">Kirtan &amp; Lt. Atul Gupta</p>
             <p class="blessing-group">Deepti &amp; Avinash Gupta</p>
             <p class="blessings-text together-with">Together with</p>
-            <p class="blessing-group">Dolly Brijesh Neema</p>
-            <p class="blessing-group">Om Garg</p>
+            <p class="blessing-group">Dolly &amp; Brijesh Neema</p>
             <p class="blessing-group">Surbhi &amp; Saurabh Chavhan</p>
             <p class="blessing-group">Sweety &amp; Sumit Srimali</p>
             <p class="blessing-group">Ritika &amp; Devesh Neema</p>
@@ -124,12 +136,15 @@
         <div class="event-item">
           <img class="event-full-img" src="assets/haldi.png" alt="Haldi ke rang, Carnival ke sang" />
         </div>
+        <!-- <div class="event-item">
+          <img class="event-full-img" src="assets/maayra.png" alt="Maayra ki mehek" />
+        </div> -->
         <div class="event-item">
           <img class="event-full-img" src="assets/sangeet.png" alt="Sang hai toh Geet hai" />
         </div>
-        <div class="event-item">
+        <!-- <div class="event-item">
           <img class="event-full-img" src="assets/baarat.png" alt="Band Baaja Baarat" />
-        </div>
+        </div> -->
         <div class="event-item">
           <img class="event-full-img" src="assets/wedding.png" alt="Phoolon se Pheron tak" />
         </div>
@@ -138,18 +153,7 @@
         </div>
       </div>
     </section>
-
-    <!-- <section class="section gallery-section">
-      <p class="eyebrow">Memories</p>
-      <h2>Photo Gallery</h2>
-      <div class="gallery">
-        <div class="photo placeholder">Add Photo</div>
-        <div class="photo placeholder">Add Photo</div>
-        <div class="photo placeholder">Add Photo</div>
-        <div class="photo placeholder">Add Photo</div>
-      </div>
-    </section> -->
-
+    
     <section class="section venue-section">
       <p class="eyebrow">Venue</p>
       <h2>Join Us Here</h2>
@@ -184,6 +188,89 @@
     </footer>
   </main>
 
+  <script>
+    (function () {
+      const video = document.getElementById('introVideo');
+      const intro = document.getElementById('introScreen');
+      const main  = document.getElementById('mainContent');
+      const music = document.getElementById('bgMusic');
+      const musicBtn = document.getElementById('musicBtn');
+      let started = false;
+      let finished = false;
+
+      // === diagnostics ===
+      console.log('canPlayType video/mp4:', video.canPlayType('video/mp4'));
+      console.log('canPlayType H.264/AAC:',
+        video.canPlayType('video/mp4; codecs="avc1.42E01E, mp4a.40.2"'));
+      ['loadstart','loadedmetadata','loadeddata','canplay','canplaythrough',
+       'play','playing','pause','ended','error','stalled','suspend','waiting','abort']
+        .forEach(ev => video.addEventListener(ev, () =>
+          console.log('[video]', ev, 'readyState=', video.readyState,
+                      'networkState=', video.networkState)));
+      video.addEventListener('error', () => {
+        const e = video.error;
+        console.log('[video ERROR]', e && e.code, e && e.message);
+      });
+
+      // Freeze on the first frame so the user sees a still, not black
+      video.addEventListener('loadeddata', () => {
+        if (!started) {
+          try { video.pause(); video.currentTime = 0; } catch (_) {}
+        }
+      }, { once: true });
+
+      function revealMain() {
+        if (finished) return;
+        finished = true;
+        main.classList.remove('hidden');
+        window.scrollTo(0, 0);
+        window.dispatchEvent(new Event('resize'));
+        intro.style.transition = 'opacity 500ms ease';
+        intro.style.opacity = '0';
+        setTimeout(() => { intro.style.display = 'none'; }, 550);
+      }
+
+      async function startVideo() {
+        if (started) return;
+        started = true;
+        console.log('[intro] click — attempting play');
+
+        try {
+          video.muted = false;
+          video.volume = 1;
+          await video.play();
+        } catch (err) {
+          console.log('Unmuted play failed:', err && err.name, err && err.message);
+          try {
+            video.muted = true;
+            await video.play();
+          } catch (err2) {
+            console.log('Muted play failed too:', err2 && err2.name, err2 && err2.message);
+            revealMain();
+            return;
+          }
+        }
+
+        if (music) {
+          music.play().then(() => musicBtn && musicBtn.classList.add('playing'))
+                      .catch(() => {});
+        }
+      }
+
+      intro.addEventListener('click', startVideo);
+      video.addEventListener('ended', revealMain);
+
+      // Safety net
+      setTimeout(() => {
+        if (!finished && (!started || video.readyState < 2)) {
+          console.log('Safety timeout — revealing main content.',
+                      'readyState=', video.readyState,
+                      'networkState=', video.networkState);
+          revealMain();
+        }
+      }, 15000);
+    })();
+  </script>
   <script src="script.js"></script>
 </body>
 </html>
