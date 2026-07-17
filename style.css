@@ -158,7 +158,9 @@ button:hover:not(.envelope), .primary-btn:hover, .secondary-btn:hover { transfor
 .music-btn.playing { animation: pulse 1.6s infinite; }
 
 .hero {
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
   width: min(96vw, 760px);
   margin: 0 auto;
   padding: 0;
@@ -166,8 +168,12 @@ button:hover:not(.envelope), .primary-btn:hover, .secondary-btn:hover { transfor
 }
 .hero-card-image {
   display: block;
-  width: 100%;
+  max-width: 100%;
+  max-height: 100vh;
+  max-height: 100svh;
+  width: auto;
   height: auto;
+  margin: 0 auto;
 }
 .ornament { font-size: 4rem; color: var(--champagne); }
 .ornament-ganesh {
