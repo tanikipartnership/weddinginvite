@@ -1,4 +1,4 @@
-const weddingDate = new Date('2026-12-11T12:00:00').getTime();
+const weddingDate = new Date('2026-12-11T00:00:00').getTime();
 const whatsappNumber = '+919123054648'; // Replace with your WhatsApp number with country code, no + sign.
 
 const introScreen = document.getElementById('introScreen');
