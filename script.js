@@ -7,7 +7,7 @@ const openInvite = document.getElementById('openInvite');
 const music = document.getElementById('bgMusic');
 const musicBtn = document.getElementById('musicBtn');
 
-const MUSIC_START = 0; // seconds
+const MUSIC_START = -10; // seconds
 function seekToStart() {
   try { music.currentTime = MUSIC_START; } catch (e) { /* ignore */ }
 }
