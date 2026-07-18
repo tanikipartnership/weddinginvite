@@ -295,7 +295,11 @@ button:hover:not(.envelope), .primary-btn:hover, .secondary-btn:hover { transfor
   animation: pulse-hint 2.2s ease-in-out infinite;
   transition: opacity .4s ease;
 }
-.scratch-hint.hidden-hint { opacity: 0; }
+.scratch-hint.hidden-hint {
+  opacity: 0;
+  transition: opacity .08s linear;
+  animation: none;
+}
 @keyframes pulse-hint {
   0%, 100% { transform: scale(1); opacity: .9; }
   50% { transform: scale(1.04); opacity: .65; }
