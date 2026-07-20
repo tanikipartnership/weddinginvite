@@ -296,14 +296,3 @@ function revealOnScroll() {
 }
 window.addEventListener('scroll', revealOnScroll);
 
-const rsvpForm = document.getElementById('rsvpForm');
-rsvpForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const name = document.getElementById('guestName').value.trim();
-  const count = document.getElementById('guestCount').value.trim();
-  const attendance = document.getElementById('attendance').value;
-  const message = document.getElementById('message').value.trim();
-
-  const text = `Wedding RSVP%0A%0AName: ${encodeURIComponent(name)}%0AGuests: ${encodeURIComponent(count)}%0AAttendance: ${encodeURIComponent(attendance)}%0AMessage: ${encodeURIComponent(message || '-')}`;
-  window.open(`https://wa.me/${whatsappNumber}?text=${text}`, '_blank');
-});
