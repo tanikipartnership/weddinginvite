@@ -537,7 +537,6 @@ textarea { min-height: 110px; resize: vertical; }
 footer {
   text-align: center;
   padding: 70px 20px 90px;
-  background: rgba(255,253,248,.5);
 }
 footer h2 { font-family: 'Great Vibes', cursive; color: var(--brown); }
 .hashtag { color: var(--gold); }
