@@ -593,6 +593,7 @@ footer h3 { font-size: 2rem; }
 
 @media (max-width: 680px) {
   .section { padding: 58px 0; }
+  .hero + .section { padding-top: 10px; }
   .hero {
     width: min(100%, 520px);
     padding-top: 0;
