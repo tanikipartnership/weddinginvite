@@ -301,6 +301,28 @@
 
       intro.addEventListener('click', startVideo);
       video.addEventListener('ended', revealMain);
+      
+      // === Attempt to auto-start music + video on page load (no tap needed) ===
+      // Most browsers block audio autoplay without a user gesture. We still try,
+      // and if it fails we fall back to starting on ANY first interaction anywhere
+      // on the page (tap / scroll / key press / mouse move) — not just the envelope.
+      function tryAutoStart() {
+        if (started) return;
+        startVideo();
+      }
+
+      // First shot: right after the page loads.
+      window.addEventListener('load', () => {
+        setTimeout(tryAutoStart, 300);
+      });
+
+      // Fallback: the very first user interaction of any kind unlocks it.
+      const unlockEvents = ['pointerdown', 'touchstart', 'click', 'keydown', 'scroll', 'mousemove'];
+      const unlock = () => {
+        unlockEvents.forEach(ev => window.removeEventListener(ev, unlock, true));
+        tryAutoStart();
+      };
+      unlockEvents.forEach(ev => window.addEventListener(ev, unlock, { capture: true, passive: true }));
 
       // Safety net
       setTimeout(() => {
