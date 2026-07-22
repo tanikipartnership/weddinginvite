@@ -270,7 +270,18 @@
         if (started) return;
         started = true;
         console.log('[intro] click — attempting play');
-
+        
+        // Start background music FIRST (independent of video) so it plays
+        // during the envelope video, not just after it ends.
+        if (music) {
+          music.play()
+            .then(() => {
+              console.log('[music] started during envelope video');
+              musicBtn && musicBtn.classList.add('playing');
+            })
+            .catch(err => console.log('[music] play failed:', err && err.name, err && err.message));
+        }
+        
         try {
           video.muted = false;
           video.volume = 1;
@@ -285,11 +296,6 @@
             revealMain();
             return;
           }
-        }
-
-        if (music) {
-          music.play().then(() => musicBtn && musicBtn.classList.add('playing'))
-                      .catch(() => {});
         }
       }
 
