@@ -31,6 +31,19 @@ body {
 
 h1, h2, h3 { font-family: 'Cormorant Garamond', serif; margin: 0; }
 h2 { font-size: clamp(2.4rem, 7vw, 4.2rem); font-weight: 600; }
+/* Unified section heading: every section's h2 renders identically. */
+.section > h2 {
+  font-family: 'Great Vibes', cursive;
+  font-weight: 500;
+  font-size: clamp(2.4rem, 9vw, 3.6rem);
+  line-height: 1.15;
+  color: var(--brown);
+  text-align: center;
+  margin: 0 0 22px;
+}
+
+/* The very first section after the hero sits closer to it. */
+.hero + .section { padding-top: 6px; }
 p { line-height: 1.8; color: var(--muted); }
 .eyebrow {
   text-transform: uppercase;
