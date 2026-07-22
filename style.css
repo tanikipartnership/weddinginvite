@@ -456,7 +456,8 @@ button:hover:not(.envelope), .primary-btn:hover, .secondary-btn:hover { transfor
   padding: 30px 18px;
   margin-top: 32px;
 }
-.family-card h3 {
+.family-card h3,
+.venue-card h3 {
   margin-top: 0;
   font-family: 'Great Vibes', cursive;
   font-size: 2.4rem;
